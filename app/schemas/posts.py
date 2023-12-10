@@ -1,8 +1,12 @@
-from dataclasses import Field
-from pydantic import BaseModel
+from typing_extensions import Annotated
+from bson import ObjectId
+from pydantic import BaseModel, Field
+
+from ..schemas.common import PyMongoObjectId
 
 class Post(BaseModel):
-    id: str
+    # _id: ObjectId
+    id: PyMongoObjectId
     tags: list[str]
     title: str
     thumbnail_img: str
